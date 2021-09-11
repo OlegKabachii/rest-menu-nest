@@ -1,5 +1,5 @@
 import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
-import { Dish } from "./dish.model";
+import { Dish } from "../dish/dish.model";
 import { ApiProperty } from "@nestjs/swagger";
 
 interface CategoryCreationAttrs {

@@ -14,11 +14,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoryController = void 0;
 const common_1 = require("@nestjs/common");
-const create_category_dto_1 = require("../dto/category/create-category.dto");
-const update_category_dto_1 = require("../dto/category/update-category.dto");
-const category_service_1 = require("../services/category.service");
+const category_dto_1 = require("./category.dto");
+const category_service_1 = require("./category.service");
 const swagger_1 = require("@nestjs/swagger");
-const category_model_1 = require("../models/category.model");
+const category_model_1 = require("./category.model");
 let CategoryController = class CategoryController {
     constructor(categoryService) {
         this.categoryService = categoryService;
@@ -32,8 +31,8 @@ let CategoryController = class CategoryController {
     getCategoryById(id) {
         return this.categoryService.getCategoryById(id);
     }
-    updateCategoryById(updateCategoryDto, id) {
-        return this.categoryService.updateCategoryById(id, updateCategoryDto);
+    updateCategoryById(categoryDto, id) {
+        return this.categoryService.updateCategoryById(id, categoryDto);
     }
     removeCategory(id) {
         return this.categoryService.removeCategoryById(id);
@@ -46,7 +45,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_category_dto_1.CreateCategoryDto]),
+    __metadata("design:paramtypes", [category_dto_1.CategoryDto]),
     __metadata("design:returntype", void 0)
 ], CategoryController.prototype, "createCategory", null);
 __decorate([
@@ -76,7 +75,7 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [update_category_dto_1.UpdateCategoryDto, String]),
+    __metadata("design:paramtypes", [category_dto_1.CategoryDto, String]),
     __metadata("design:returntype", void 0)
 ], CategoryController.prototype, "updateCategoryById", null);
 __decorate([

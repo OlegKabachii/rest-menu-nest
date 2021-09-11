@@ -1,5 +1,5 @@
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
-import { Category } from "./category.model";
+import { Category } from "../category/category.model";
 import { ApiProperty } from "@nestjs/swagger";
 
 interface DishCreationAttrs {
@@ -35,7 +35,7 @@ export class Dish extends Model<Dish, DishCreationAttrs>{
   @Column({type:DataType.STRING, allowNull: false})
   dishPrice:string
 
-  @ApiProperty({example: '', description: 'Image' })
+  @ApiProperty({example: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png', description: 'Image' })
   @Column({type:DataType.STRING})
   image:string
 

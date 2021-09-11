@@ -3,6 +3,6 @@ import { CreateInfoDto } from "../dto/info/create-info.dto";
 export declare class InfoService {
     private infoRepository;
     constructor(infoRepository: typeof Info);
-    createInfo(infoDto: CreateInfoDto): Promise<Info>;
-    getAllInfo(): Promise<Info[]>;
+    createInfo(infoDto: CreateInfoDto): Promise<any>;
+    getAllInfo(): Promise<any>;
 }

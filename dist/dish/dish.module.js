@@ -10,8 +10,8 @@ exports.DishModule = void 0;
 const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const dish_controller_1 = require("./dish.controller");
-const dish_service_1 = require("../services/dish.service");
-const dish_model_1 = require("../models/dish.model");
+const dish_service_1 = require("./dish.service");
+const dish_model_1 = require("./dish.model");
 let DishModule = class DishModule {
 };
 DishModule = __decorate([

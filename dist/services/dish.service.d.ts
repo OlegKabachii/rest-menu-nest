@@ -3,7 +3,7 @@ import { Dish } from "../models/dish.model";
 export declare class DishService {
     private dishRepository;
     constructor(dishRepository: typeof Dish);
-    createDish(createDishDto: CreateDishDto): Promise<Dish>;
-    getAllDishByCategoryId(id: number): Promise<Dish[]>;
-    updateDishById(id: number, dishDto: CreateDishDto): Promise<Dish>;
+    createDish(createDishDto: CreateDishDto): Promise<any>;
+    getAllDishByCategoryId(id: number): Promise<any>;
+    updateDishById(id: number, dishDto: CreateDishDto): Promise<any>;
 }

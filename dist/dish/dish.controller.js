@@ -14,11 +14,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DishController = void 0;
 const common_1 = require("@nestjs/common");
-const dish_service_1 = require("../services/dish.service");
-const update_dish_dto_1 = require("../dto/dish/update-dish.dto");
-const create_dish_dto_1 = require("../dto/dish/create-dish.dto");
+const dish_service_1 = require("./dish.service");
+const dish_dto_1 = require("./dish.dto");
 const swagger_1 = require("@nestjs/swagger");
-const dish_model_1 = require("../models/dish.model");
+const dish_model_1 = require("./dish.model");
 let DishController = class DishController {
     constructor(dishService) {
         this.dishService = dishService;
@@ -29,9 +28,11 @@ let DishController = class DishController {
     getAllDishByCategoryId(id) {
         return this.dishService.getAllDishByCategoryId(id);
     }
-    updateDishById(updateDishDto, id) {
+    updateDishById(id, dishDto) {
+        return this.dishService.updateDishById(id, dishDto);
     }
     removeDishById(id) {
+        return this.dishService;
     }
 };
 __decorate([
@@ -41,7 +42,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_dish_dto_1.CreateDishDto]),
+    __metadata("design:paramtypes", [dish_dto_1.DishDto]),
     __metadata("design:returntype", void 0)
 ], DishController.prototype, "createDish", null);
 __decorate([
@@ -59,10 +60,10 @@ __decorate([
     (0, swagger_1.ApiResponse)({ status: 200, type: dish_model_1.Dish }),
     (0, common_1.Patch)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
-    __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [update_dish_dto_1.UpdateDishDto, Number]),
+    __metadata("design:paramtypes", [Number, dish_dto_1.DishDto]),
     __metadata("design:returntype", void 0)
 ], DishController.prototype, "updateDishById", null);
 __decorate([

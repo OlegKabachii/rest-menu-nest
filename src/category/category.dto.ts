@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class CreateCategoryDto{
+export class CategoryDto {
   @ApiProperty({example: 'SALADS', description: 'Category name' })
   readonly categoryName: string
   @ApiProperty({example: 'true', description: 'If category available' })

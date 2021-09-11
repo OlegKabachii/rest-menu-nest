@@ -10,8 +10,8 @@ exports.CategoryModule = void 0;
 const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const category_controller_1 = require("./category.controller");
-const category_service_1 = require("../services/category.service");
-const category_model_1 = require("../models/category.model");
+const category_service_1 = require("./category.service");
+const category_model_1 = require("./category.model");
 let CategoryModule = class CategoryModule {
 };
 CategoryModule = __decorate([

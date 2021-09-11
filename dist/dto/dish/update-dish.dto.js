@@ -30,6 +30,10 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateDishDto.prototype, "dishPrice", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ example: '', description: 'Image' }),
+    __metadata("design:type", String)
+], UpdateDishDto.prototype, "image", void 0);
+__decorate([
     (0, swagger_1.ApiProperty)({ example: 'true', description: 'If dish available' }),
     __metadata("design:type", Boolean)
 ], UpdateDishDto.prototype, "dishAvailable", void 0);

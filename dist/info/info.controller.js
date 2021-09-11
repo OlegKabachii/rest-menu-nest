@@ -14,16 +14,16 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InfoController = void 0;
 const common_1 = require("@nestjs/common");
-const create_info_dto_1 = require("../dto/info/create-info.dto");
-const info_service_1 = require("../services/info.service");
+const info_service_1 = require("./info.service");
 const swagger_1 = require("@nestjs/swagger");
-const info_models_1 = require("../models/info.models");
+const info_models_1 = require("./info.models");
+const info_dto_1 = require("./info.dto");
 let InfoController = class InfoController {
     constructor(infoService) {
         this.infoService = infoService;
     }
-    createCategory(createInfoDto) {
-        return this.infoService.createInfo(createInfoDto);
+    createCategory(infoDto) {
+        return this.infoService.createInfo(infoDto);
     }
     getAllCategory() {
         return this.infoService.getAllInfo();
@@ -36,7 +36,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_info_dto_1.CreateInfoDto]),
+    __metadata("design:paramtypes", [info_dto_1.InfoDto]),
     __metadata("design:returntype", void 0)
 ], InfoController.prototype, "createCategory", null);
 __decorate([
