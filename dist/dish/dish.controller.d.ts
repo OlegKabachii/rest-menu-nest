@@ -1,12 +1,11 @@
-import { DishService } from "../services/dish.service";
-import { UpdateDishDto } from "../dto/dish/update-dish.dto";
-import { CreateDishDto } from "../dto/dish/create-dish.dto";
-import { Dish } from "../models/dish.model";
+import { DishService } from "./dish.service";
+import { DishDto } from "./dish.dto";
+import { Dish } from "./dish.model";
 export declare class DishController {
     private readonly dishService;
     constructor(dishService: DishService);
-    createDish(createDish: CreateDishDto): Promise<Dish>;
+    createDish(createDish: DishDto): Promise<Dish>;
     getAllDishByCategoryId(id: number): Promise<Dish[]>;
-    updateDishById(updateDishDto: UpdateDishDto, id: number): void;
-    removeDishById(id: string): void;
+    updateDishById(id: number, dishDto: DishDto): Promise<Dish>;
+    removeDishById(id: string): DishService;
 }

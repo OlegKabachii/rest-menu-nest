@@ -1,9 +1,9 @@
-import { CreateInfoDto } from "../dto/info/create-info.dto";
-import { InfoService } from "../services/info.service";
-import { Info } from "../models/info.models";
+import { InfoService } from "./info.service";
+import { Info } from "./info.models";
+import { InfoDto } from "./info.dto";
 export declare class InfoController {
     private readonly infoService;
     constructor(infoService: InfoService);
-    createCategory(createInfoDto: CreateInfoDto): Promise<Info>;
+    createCategory(infoDto: InfoDto): Promise<Info>;
     getAllCategory(): Promise<Info[]>;
 }

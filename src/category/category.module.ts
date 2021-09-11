@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { CategoryController } from "./category.controller";
-import { CategoryService } from "../services/category.service";
-import { Category } from "../models/category.model";
+import { CategoryService } from "./category.service";
+import { Category } from "./category.model";
 
 
 @Module({

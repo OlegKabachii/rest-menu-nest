@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { InfoController } from "./info.controller";
-import { InfoService } from "../services/info.service";
-import { Info } from "../models/info.models";
+import { InfoService } from "./info.service";
+import { Info } from "./info.models";
 
 
 @Module({

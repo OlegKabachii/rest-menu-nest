@@ -4,9 +4,9 @@ import { UpdateCategoryDto } from "../dto/category/update-category.dto";
 export declare class CategoryService {
     private categoryRepository;
     constructor(categoryRepository: typeof Category);
-    createCategory(createCategoryDto: CreateCategoryDto): Promise<Category>;
-    getAllCategory(): Promise<Category[]>;
-    getCategoryById(id: string): Promise<Category>;
-    updateCategoryById(id: string, updateCategoryDto: UpdateCategoryDto): Promise<Category>;
-    removeCategoryById(id: string): Promise<Category>;
+    createCategory(createCategoryDto: CreateCategoryDto): Promise<any>;
+    getAllCategory(): Promise<any>;
+    getCategoryById(id: string): Promise<any>;
+    updateCategoryById(id: string, updateCategoryDto: UpdateCategoryDto): Promise<any>;
+    removeCategoryById(id: string): Promise<any>;
 }

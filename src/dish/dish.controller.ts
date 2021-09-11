@@ -1,9 +1,8 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post } from "@nestjs/common";
-import { DishService } from "../services/dish.service";
-import { UpdateDishDto } from "../dto/dish/update-dish.dto";
-import { CreateDishDto } from "../dto/dish/create-dish.dto";
+import { DishService } from "./dish.service";
+import { DishDto } from "./dish.dto";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
-import { Dish } from "../models/dish.model";
+import { Dish } from "./dish.model";
 
 @ApiTags('Dish')
 @Controller('dish')
@@ -16,7 +15,7 @@ export class DishController {
   @ApiResponse({status: 201, type: Dish})
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  createDish(@Body() createDish: CreateDishDto ){
+  createDish(@Body() createDish: DishDto ){
     return this.dishService.createDish(createDish)
   }
 
@@ -33,8 +32,8 @@ export class DishController {
   @ApiResponse({status: 200, type: Dish})
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
-  updateDishById(@Body() updateDishDto: UpdateDishDto, @Param('id') id: number){
-   return this.dishService.updateDishById(id, updateDishDto)
+  updateDishById(@Param('id') id: number, @Body() dishDto: DishDto){
+   return this.dishService.updateDishById(id, dishDto)
   }
 
   @ApiOperation({summary: 'Delete dish by id'})
@@ -42,7 +41,7 @@ export class DishController {
   @Delete(':id')
   @HttpCode(HttpStatus.OK)
   removeDishById(@Param('id') id: string){
-    //return this.dishService.removeDishById(id)
+    return this.dishService
   }
 
 

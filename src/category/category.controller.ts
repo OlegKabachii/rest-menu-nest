@@ -1,9 +1,8 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post} from "@nestjs/common";
-import { CreateCategoryDto } from "../dto/category/create-category.dto";
-import { UpdateCategoryDto } from "../dto/category/update-category.dto";
-import { CategoryService } from "../services/category.service";
+import { CategoryDto } from "./category.dto";
+import { CategoryService } from "./category.service";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
-import { Category } from "../models/category.model";
+import { Category } from "./category.model";
 
 @ApiTags('Category')
 @Controller('category')
@@ -17,7 +16,7 @@ export class CategoryController {
   @ApiResponse({status: 201, type: Category})
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  createCategory(@Body() createCategoryDto: CreateCategoryDto){
+  createCategory(@Body() createCategoryDto: CategoryDto){
     return this.categoryService.createCategory(createCategoryDto)
   }
 
@@ -42,8 +41,8 @@ export class CategoryController {
   @ApiResponse({status: 200, type: Category})
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
-  updateCategoryById(@Body() updateCategoryDto: UpdateCategoryDto, @Param('id') id: string){
-    return this.categoryService.updateCategoryById(id, updateCategoryDto)
+  updateCategoryById(@Body() categoryDto: CategoryDto, @Param('id') id: string){
+    return this.categoryService.updateCategoryById(id, categoryDto)
   }
 
   //todo: delete by id

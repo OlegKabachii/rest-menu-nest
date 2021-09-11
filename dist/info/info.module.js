@@ -10,8 +10,8 @@ exports.InfoModule = void 0;
 const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const info_controller_1 = require("./info.controller");
-const info_service_1 = require("../services/info.service");
-const info_models_1 = require("../models/info.models");
+const info_service_1 = require("./info.service");
+const info_models_1 = require("./info.models");
 let InfoModule = class InfoModule {
 };
 InfoModule = __decorate([

@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from "@nestjs/sequelize";
 import { ConfigModule } from "@nestjs/config";
-import { Category } from "./models/category.model";
-import { Dish } from "./models/dish.model";
-import { Info } from "./models/info.models";
+import { Category } from "./category/category.model";
+import { Dish } from "./dish/dish.model";
+import { Info } from "./info/info.models";
 import { CategoryModule } from "./category/category.module";
 import { DishModule } from "./dish/dish.module";
 import { InfoModule } from "./info/info.module";
