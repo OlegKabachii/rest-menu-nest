@@ -29,11 +29,14 @@ export class DishService {
     return await dish.update(dishDto);
   }
 
- // todo: remove by id
   async removeDishById(id: number) {
-    const dishId = await this.dishRepository
-    new HttpException("Category not found", HttpStatus.NOT_FOUND);
-
+    const dishId = await this.dishRepository.destroy({
+      where: { id }
+    });
+    if (!dishId) {
+      throw new HttpException("Category not found", HttpStatus.NOT_FOUND);
+    }
+    return dishId;
   }
 
 

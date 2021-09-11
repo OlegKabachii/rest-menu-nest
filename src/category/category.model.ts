@@ -10,9 +10,9 @@ interface CategoryCreationAttrs {
 @Table({tableName: 'category'})
 export class Category extends Model<Category, CategoryCreationAttrs>{
 
-  @ApiProperty({example: '1', description: 'Unique ID' })
-  @Column({type:DataType.INTEGER, unique:true, autoIncrement: true, primaryKey: true})
-  id: number
+  // @ApiProperty({example: '1', description: 'Unique ID' })
+  // @Column({type:DataType.INTEGER, unique:true, autoIncrement: true, primaryKey: true})
+  // id: number
 
   @ApiProperty({example: 'SALADS', description: 'Category name' })
   @Column({type:DataType.STRING, unique:true, allowNull: false})

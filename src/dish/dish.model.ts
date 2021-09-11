@@ -15,9 +15,9 @@ interface DishCreationAttrs {
 @Table({tableName: 'dish'})
 export class Dish extends Model<Dish, DishCreationAttrs>{
 
-  @ApiProperty({example: '1', description: 'Unique ID' })
-  @Column({type:DataType.INTEGER, unique:true, autoIncrement: true, primaryKey: true})
-  id: number
+  // @ApiProperty({example: '1', description: 'Unique ID' })
+  // @Column({type:DataType.INTEGER, unique:true, autoIncrement: true, primaryKey: true})
+  // id: number
 
   @ApiProperty({example: 'Cezar', description: 'Dish name' })
   @Column({type:DataType.STRING, unique:true, allowNull: false})

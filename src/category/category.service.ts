@@ -17,7 +17,7 @@ export class CategoryService {
     return await this.categoryRepository.findAll();
   }
 
-  async getCategoryById(id: string) {
+  async getCategoryById(id: number) {
     const category = await this.categoryRepository.findByPk(id);
     if (!category) {
       throw new HttpException("Category not found", HttpStatus.NOT_FOUND);
@@ -25,7 +25,7 @@ export class CategoryService {
     return category;
   }
 
-  async updateCategoryById(id: string, categoryDto: CategoryDto) {
+  async updateCategoryById(id: number, categoryDto: CategoryDto) {
     const category = await this.categoryRepository.findByPk(id);
     if (!category) {
       throw new HttpException("Category not found", HttpStatus.NOT_FOUND);
@@ -33,14 +33,13 @@ export class CategoryService {
     return await category.update(categoryDto);
   }
 
-  //todo: remove by id
   async removeCategoryById(id: string){
-    const category = await this.categoryRepository.findByPk(id)
-    if(category){
-      const categoryRemove = await category
-      return categoryRemove
+    const category = await this.categoryRepository.destroy({
+      where: {id}})
+    if(!category){
+      throw new HttpException('Category not found', HttpStatus.NOT_FOUND);
     }
-    throw new HttpException('Category not found', HttpStatus.NOT_FOUND);
+   return category;
 
   }
 
