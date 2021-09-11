@@ -67,18 +67,19 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], CategoryController.prototype, "getCategoryById", null);
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Update one category by id' }),
     (0, swagger_1.ApiResponse)({ status: 200, type: category_model_1.Category }),
+    (0, common_1.UsePipes)(validations_pipes_1.ValidationsPipes),
     (0, common_1.Patch)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [category_dto_1.CategoryDto, String]),
+    __metadata("design:paramtypes", [category_dto_1.CategoryDto, Number]),
     __metadata("design:returntype", void 0)
 ], CategoryController.prototype, "updateCategoryById", null);
 __decorate([

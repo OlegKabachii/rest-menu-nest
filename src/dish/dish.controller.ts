@@ -21,7 +21,6 @@ export class DishController {
     return this.dishService.createDish(createDish)
   }
 
-  //todo: handle status code
   @ApiOperation({summary: 'Get all dish by category ID'})
   @ApiResponse({status: 200, type: [Dish]})
   @Get(':id')
@@ -42,8 +41,8 @@ export class DishController {
   @ApiResponse({status: 200, type: Dish})
   @Delete(':id')
   @HttpCode(HttpStatus.OK)
-  removeDishById(@Param('id') id: string){
-    return this.dishService
+  removeDishById(@Param('id') id: number){
+    return this.dishService.removeDishById(id)
   }
 
 

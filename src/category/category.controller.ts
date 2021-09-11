@@ -35,20 +35,19 @@ export class CategoryController {
   @ApiResponse({status: 200, type: Category})
   @Get(':id')
   @HttpCode(HttpStatus.OK)
-  getCategoryById(@Param('id') id: string){
+  getCategoryById(@Param('id') id: number){
     return this.categoryService.getCategoryById(id)
   }
 
-  //todo: put by id
   @ApiOperation({summary: 'Update one category by id'})
   @ApiResponse({status: 200, type: Category})
+  @UsePipes(ValidationsPipes)
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
-  updateCategoryById(@Body() categoryDto: CategoryDto, @Param('id') id: string){
+  updateCategoryById(@Body() categoryDto: CategoryDto, @Param('id') id: number){
     return this.categoryService.updateCategoryById(id, categoryDto)
   }
 
-  //todo: delete by id
   @ApiOperation({summary: 'Remove one category by id'})
   @ApiResponse({status: 200, type: Category})
   @Delete(':id')

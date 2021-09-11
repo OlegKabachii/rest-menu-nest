@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post, UsePipes } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Patch, Post, UsePipes } from "@nestjs/common";
 import { InfoService } from "./info.service";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Info } from "./info.models";
@@ -27,6 +27,15 @@ export class InfoController {
   @HttpCode(HttpStatus.OK)
   getAllCategory(){
     return this.infoService.getAllInfo()
+  }
+
+  @ApiOperation({summary: 'Update info'})
+  @ApiResponse({status: 200, type: Info})
+  @UsePipes(ValidationsPipes)
+  @Patch(':id')
+  @HttpCode(HttpStatus.OK)
+  updateCategoryById(@Body() infoDto: InfoDto, @Param('id') id: number){
+    return this.infoService.updateInfo(id, infoDto)
   }
 
 

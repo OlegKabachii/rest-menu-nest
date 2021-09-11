@@ -33,7 +33,7 @@ let DishController = class DishController {
         return this.dishService.updateDishById(id, dishDto);
     }
     removeDishById(id) {
-        return this.dishService;
+        return this.dishService.removeDishById(id);
     }
 };
 __decorate([
@@ -75,7 +75,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], DishController.prototype, "removeDishById", null);
 DishController = __decorate([

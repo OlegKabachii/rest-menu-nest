@@ -41,12 +41,13 @@ let CategoryService = class CategoryService {
         return await category.update(categoryDto);
     }
     async removeCategoryById(id) {
-        const category = await this.categoryRepository.findOne();
-        if (category) {
-            const categoryRemove = await category;
-            return categoryRemove;
+        const category = await this.categoryRepository.destroy({
+            where: { id }
+        });
+        if (!category) {
+            throw new common_1.HttpException('Category not found', common_1.HttpStatus.NOT_FOUND);
         }
-        throw new common_1.HttpException('Category not found', common_1.HttpStatus.NOT_FOUND);
+        return category;
     }
 };
 CategoryService = __decorate([

@@ -29,6 +29,9 @@ let InfoController = class InfoController {
     getAllCategory() {
         return this.infoService.getAllInfo();
     }
+    updateCategoryById(infoDto, id) {
+        return this.infoService.updateInfo(id, infoDto);
+    }
 };
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Create INFO' }),
@@ -50,6 +53,18 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], InfoController.prototype, "getAllCategory", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Update info' }),
+    (0, swagger_1.ApiResponse)({ status: 200, type: info_models_1.Info }),
+    (0, common_1.UsePipes)(validations_pipes_1.ValidationsPipes),
+    (0, common_1.Patch)(':id'),
+    (0, common_1.HttpCode)(common_1.HttpStatus.OK),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [info_dto_1.InfoDto, Number]),
+    __metadata("design:returntype", void 0)
+], InfoController.prototype, "updateCategoryById", null);
 InfoController = __decorate([
     (0, swagger_1.ApiTags)('Info'),
     (0, common_1.Controller)('info'),
