@@ -9,6 +9,8 @@ export class UpdateDishDto{
   readonly dishWeight:string
   @ApiProperty({example: '$ 10/20', description: 'Dish price enter through the slash' })
   readonly dishPrice:string
+  @ApiProperty({example: '', description: 'Image' })
+  readonly image:string
   @ApiProperty({example: 'true', description: 'If dish available' })
   readonly dishAvailable: boolean
   @ApiProperty({example: '1', description: 'Category ID (ForeignKey)' })

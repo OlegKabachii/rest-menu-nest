@@ -34,7 +34,7 @@ export class DishController {
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
   updateDishById(@Body() updateDishDto: UpdateDishDto, @Param('id') id: number){
-   //return this.dishService.updateDishById(id, updateDishDto)
+   return this.dishService.updateDishById(id, updateDishDto)
   }
 
   @ApiOperation({summary: 'Delete dish by id'})
