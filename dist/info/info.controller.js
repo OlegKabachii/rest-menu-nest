@@ -18,6 +18,7 @@ const info_service_1 = require("./info.service");
 const swagger_1 = require("@nestjs/swagger");
 const info_models_1 = require("./info.models");
 const info_dto_1 = require("./info.dto");
+const validations_pipes_1 = require("../utils/validations.pipes");
 let InfoController = class InfoController {
     constructor(infoService) {
         this.infoService = infoService;
@@ -32,6 +33,7 @@ let InfoController = class InfoController {
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Create INFO' }),
     (0, swagger_1.ApiResponse)({ status: 201, type: info_models_1.Info }),
+    (0, common_1.UsePipes)(validations_pipes_1.ValidationsPipes),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

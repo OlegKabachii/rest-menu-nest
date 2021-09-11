@@ -18,6 +18,7 @@ const category_dto_1 = require("./category.dto");
 const category_service_1 = require("./category.service");
 const swagger_1 = require("@nestjs/swagger");
 const category_model_1 = require("./category.model");
+const validations_pipes_1 = require("../utils/validations.pipes");
 let CategoryController = class CategoryController {
     constructor(categoryService) {
         this.categoryService = categoryService;
@@ -41,6 +42,7 @@ let CategoryController = class CategoryController {
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Create category' }),
     (0, swagger_1.ApiResponse)({ status: 201, type: category_model_1.Category }),
+    (0, common_1.UsePipes)(validations_pipes_1.ValidationsPipes),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -51,6 +53,7 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Get all category' }),
     (0, swagger_1.ApiResponse)({ status: 200, type: [category_model_1.Category] }),
+    (0, common_1.UsePipes)(validations_pipes_1.ValidationsPipes),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __metadata("design:type", Function),

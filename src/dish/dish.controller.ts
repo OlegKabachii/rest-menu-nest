@@ -1,8 +1,9 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post, UsePipes } from "@nestjs/common";
 import { DishService } from "./dish.service";
 import { DishDto } from "./dish.dto";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Dish } from "./dish.model";
+import { ValidationsPipes } from "../utils/validations.pipes";
 
 @ApiTags('Dish')
 @Controller('dish')
@@ -13,6 +14,7 @@ export class DishController {
 
   @ApiOperation({summary: 'Create dish'})
   @ApiResponse({status: 201, type: Dish})
+  @UsePipes(ValidationsPipes)
   @Post()
   @HttpCode(HttpStatus.CREATED)
   createDish(@Body() createDish: DishDto ){

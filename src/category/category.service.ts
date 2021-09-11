@@ -35,7 +35,7 @@ export class CategoryService {
 
   //todo: remove by id
   async removeCategoryById(id: string){
-    const category = await this.categoryRepository.findByPk(id)
+    const category = await this.categoryRepository.findOne()
     if(category){
       const categoryRemove = await category
       return categoryRemove

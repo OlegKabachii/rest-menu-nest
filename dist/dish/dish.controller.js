@@ -18,6 +18,7 @@ const dish_service_1 = require("./dish.service");
 const dish_dto_1 = require("./dish.dto");
 const swagger_1 = require("@nestjs/swagger");
 const dish_model_1 = require("./dish.model");
+const validations_pipes_1 = require("../utils/validations.pipes");
 let DishController = class DishController {
     constructor(dishService) {
         this.dishService = dishService;
@@ -38,6 +39,7 @@ let DishController = class DishController {
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Create dish' }),
     (0, swagger_1.ApiResponse)({ status: 201, type: dish_model_1.Dish }),
+    (0, common_1.UsePipes)(validations_pipes_1.ValidationsPipes),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

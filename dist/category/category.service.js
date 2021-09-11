@@ -41,7 +41,7 @@ let CategoryService = class CategoryService {
         return await category.update(categoryDto);
     }
     async removeCategoryById(id) {
-        const category = await this.categoryRepository.findByPk(id);
+        const category = await this.categoryRepository.findOne();
         if (category) {
             const categoryRemove = await category;
             return categoryRemove;
