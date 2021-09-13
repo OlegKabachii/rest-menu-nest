@@ -17,15 +17,15 @@ export class DishController {
   @UsePipes(ValidationsPipes)
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  createDish(@Body() createDish: DishDto ){
-    return this.dishService.createDish(createDish)
+  createDish(@Body() dishDto: DishDto ){
+    return this.dishService.createDish(dishDto)
   }
 
   @ApiOperation({summary: 'Get all dish by category ID'})
   @ApiResponse({status: 200, type: [Dish]})
   @Get(':id')
   @HttpCode(HttpStatus.OK)
-  getAllDishByCategoryId(@Param('id') id: number){
+  getAllDishByCategoryId(@Param('id') id: string){
     return this.dishService.getAllDishByCategoryId(id)
   }
 
@@ -33,7 +33,7 @@ export class DishController {
   @ApiResponse({status: 200, type: Dish})
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
-  updateDishById(@Param('id') id: number, @Body() dishDto: DishDto){
+  updateDishById(@Param('id') id: string, @Body() dishDto: DishDto){
    return this.dishService.updateDishById(id, dishDto)
   }
 
@@ -41,7 +41,7 @@ export class DishController {
   @ApiResponse({status: 200, type: Dish})
   @Delete(':id')
   @HttpCode(HttpStatus.OK)
-  removeDishById(@Param('id') id: number){
+  removeDishById(@Param('id') id: string){
     return this.dishService.removeDishById(id)
   }
 

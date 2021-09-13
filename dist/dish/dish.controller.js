@@ -23,8 +23,8 @@ let DishController = class DishController {
     constructor(dishService) {
         this.dishService = dishService;
     }
-    createDish(createDish) {
-        return this.dishService.createDish(createDish);
+    createDish(dishDto) {
+        return this.dishService.createDish(dishDto);
     }
     getAllDishByCategoryId(id) {
         return this.dishService.getAllDishByCategoryId(id);
@@ -54,7 +54,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], DishController.prototype, "getAllDishByCategoryId", null);
 __decorate([
@@ -65,7 +65,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, dish_dto_1.DishDto]),
+    __metadata("design:paramtypes", [String, dish_dto_1.DishDto]),
     __metadata("design:returntype", void 0)
 ], DishController.prototype, "updateDishById", null);
 __decorate([
@@ -75,7 +75,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], DishController.prototype, "removeDishById", null);
 DishController = __decorate([

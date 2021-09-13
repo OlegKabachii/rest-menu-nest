@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsBoolean, IsNumber, IsString, Length } from "class-validator";
+import { IsBoolean, IsString, Length } from "class-validator";
 
 export class DishDto {
   @ApiProperty({ example: "Cezar", description: "Dish name" })
@@ -27,7 +27,7 @@ export class DishDto {
   @IsBoolean({message: 'boolean type'})
   readonly dishAvailable: boolean;
 
-  @ApiProperty({ example: "1", description: "Category ID (ForeignKey)" })
-  @IsNumber()
-  readonly categoryId: number;
+  @ApiProperty({ example: "dfgd45fgdfg453", description: "Category ID (ForeignKey)" })
+  @IsString({message: 'string type'})
+  readonly categoryId: string;
 }

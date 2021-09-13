@@ -4,8 +4,8 @@ import { Dish } from "./dish.model";
 export declare class DishController {
     private readonly dishService;
     constructor(dishService: DishService);
-    createDish(createDish: DishDto): Promise<Dish>;
-    getAllDishByCategoryId(id: number): Promise<Dish[]>;
-    updateDishById(id: number, dishDto: DishDto): Promise<Dish>;
-    removeDishById(id: string): DishService;
+    createDish(dishDto: DishDto): Promise<Dish>;
+    getAllDishByCategoryId(id: string): Promise<Dish[]>;
+    updateDishById(id: string, dishDto: DishDto): Promise<Dish>;
+    removeDishById(id: string): Promise<void>;
 }

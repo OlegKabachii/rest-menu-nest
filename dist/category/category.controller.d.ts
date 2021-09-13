@@ -8,5 +8,5 @@ export declare class CategoryController {
     getAllCategory(): Promise<Category[]>;
     getCategoryById(id: string): Promise<Category>;
     updateCategoryById(categoryDto: CategoryDto, id: string): Promise<Category>;
-    removeCategory(id: string): Promise<Category>;
+    removeCategory(id: string): Promise<void>;
 }

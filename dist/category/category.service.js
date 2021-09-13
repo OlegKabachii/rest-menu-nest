@@ -20,8 +20,8 @@ let CategoryService = class CategoryService {
     constructor(categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-    async createCategory(createCategoryDto) {
-        return await this.categoryRepository.create(createCategoryDto);
+    async createCategory(categoryDto) {
+        return await this.categoryRepository.create(categoryDto);
     }
     async getAllCategory() {
         return await this.categoryRepository.findAll();
@@ -47,7 +47,6 @@ let CategoryService = class CategoryService {
         if (!category) {
             throw new common_1.HttpException('Category not found', common_1.HttpStatus.NOT_FOUND);
         }
-        return category;
     }
 };
 CategoryService = __decorate([

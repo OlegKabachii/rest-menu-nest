@@ -6,4 +6,5 @@ export declare class InfoController {
     constructor(infoService: InfoService);
     createCategory(infoDto: InfoDto): Promise<Info>;
     getAllCategory(): Promise<Info[]>;
+    updateCategoryById(infoDto: InfoDto, id: number): Promise<Info>;
 }

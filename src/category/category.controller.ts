@@ -35,7 +35,7 @@ export class CategoryController {
   @ApiResponse({status: 200, type: Category})
   @Get(':id')
   @HttpCode(HttpStatus.OK)
-  getCategoryById(@Param('id') id: number){
+  getCategoryById(@Param('id') id: string){
     return this.categoryService.getCategoryById(id)
   }
 
@@ -44,7 +44,7 @@ export class CategoryController {
   @UsePipes(ValidationsPipes)
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
-  updateCategoryById(@Body() categoryDto: CategoryDto, @Param('id') id: number){
+  updateCategoryById(@Body() categoryDto: CategoryDto, @Param('id') id: string){
     return this.categoryService.updateCategoryById(id, categoryDto)
   }
 
