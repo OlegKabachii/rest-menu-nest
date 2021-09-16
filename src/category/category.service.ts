@@ -10,6 +10,13 @@ export class CategoryService {
   }
 
   async createCategory(categoryDto: CategoryDto) {
+    const name = await this.categoryRepository.findAll()
+      .then((res) => {
+        return res.filter((el) => el.getDataValue("categoryName") === categoryDto.categoryName);
+      });
+    if(name.length){
+      throw new HttpException("Category name is exist", HttpStatus.NOT_FOUND);
+    }
     return await this.categoryRepository.create(categoryDto);
   }
 

@@ -54,6 +54,7 @@ __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Get all category' }),
     (0, swagger_1.ApiResponse)({ status: 200, type: [category_model_1.Category] }),
     (0, common_1.UsePipes)(validations_pipes_1.ValidationsPipes),
+    (0, common_1.Header)("Access-Control-Allow-Origin", "http://localhost:4200"),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __metadata("design:type", Function),

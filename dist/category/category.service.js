@@ -21,6 +21,13 @@ let CategoryService = class CategoryService {
         this.categoryRepository = categoryRepository;
     }
     async createCategory(categoryDto) {
+        const name = await this.categoryRepository.findAll()
+            .then((res) => {
+            return res.filter((el) => el.getDataValue("categoryName") === categoryDto.categoryName);
+        });
+        if (name.length) {
+            throw new common_1.HttpException("Category name is exist", common_1.HttpStatus.NOT_FOUND);
+        }
         return await this.categoryRepository.create(categoryDto);
     }
     async getAllCategory() {
