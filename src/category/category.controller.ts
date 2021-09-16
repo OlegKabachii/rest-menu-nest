@@ -1,4 +1,16 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post, UsePipes } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Header,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Patch,
+  Post,
+  UsePipes
+} from "@nestjs/common";
 import { CategoryDto } from "./category.dto";
 import { CategoryService } from "./category.service";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
@@ -25,6 +37,7 @@ export class CategoryController {
   @ApiOperation({summary: 'Get all category'})
   @ApiResponse({status: 200, type: [Category]})
   @UsePipes(ValidationsPipes)
+  @Header("Access-Control-Allow-Origin", "http://localhost:4200")
   @Get()
   @HttpCode(HttpStatus.OK)
   getAllCategory(){

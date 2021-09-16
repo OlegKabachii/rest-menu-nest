@@ -23,36 +23,23 @@ let InfoController = class InfoController {
     constructor(infoService) {
         this.infoService = infoService;
     }
-    createCategory(infoDto) {
-        return this.infoService.createInfo(infoDto);
-    }
-    getAllCategory() {
+    getAllInfo() {
         return this.infoService.getAllInfo();
     }
-    updateCategoryById(infoDto, id) {
+    updateInfo(infoDto, id) {
         return this.infoService.updateInfo(id, infoDto);
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Create INFO' }),
-    (0, swagger_1.ApiResponse)({ status: 201, type: info_models_1.Info }),
-    (0, common_1.UsePipes)(validations_pipes_1.ValidationsPipes),
-    (0, common_1.Post)(),
-    (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [info_dto_1.InfoDto]),
-    __metadata("design:returntype", void 0)
-], InfoController.prototype, "createCategory", null);
-__decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Get INFO' }),
     (0, swagger_1.ApiResponse)({ status: 200, type: [info_models_1.Info] }),
     (0, common_1.Get)(),
+    (0, common_1.Header)("Access-Control-Allow-Origin", "http://localhost:4200"),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], InfoController.prototype, "getAllCategory", null);
+], InfoController.prototype, "getAllInfo", null);
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Update info' }),
     (0, swagger_1.ApiResponse)({ status: 200, type: info_models_1.Info }),
@@ -64,7 +51,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [info_dto_1.InfoDto, Number]),
     __metadata("design:returntype", void 0)
-], InfoController.prototype, "updateCategoryById", null);
+], InfoController.prototype, "updateInfo", null);
 InfoController = __decorate([
     (0, swagger_1.ApiTags)('Info'),
     (0, common_1.Controller)('info'),

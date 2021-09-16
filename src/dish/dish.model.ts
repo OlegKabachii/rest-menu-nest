@@ -35,10 +35,7 @@ export class Dish extends Model<Dish, DishCreationAttrs> {
   @Column({ type: DataType.STRING, allowNull: false })
   dishPrice: string;
 
-  @ApiProperty({
-    example: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-    description: "Image"
-  })
+  @ApiProperty({example: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png", description: "Image"})
   @Column({ type: DataType.STRING })
   image: string;
 
