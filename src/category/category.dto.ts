@@ -8,7 +8,7 @@ export class CategoryDto {
   @IsString({message: 'string type'})
   readonly categoryName: string
 
-  @IsBoolean({message: 'boolean type'})
   @ApiProperty({example: 'true', description: 'If category available' })
+  @IsBoolean({message: 'boolean type'})
   readonly categoryAvailable: boolean
 }

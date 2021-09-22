@@ -33,6 +33,13 @@ export class CategoryService {
   }
 
   async updateCategoryById(id: string, categoryDto: CategoryDto) {
+    const name = await this.categoryRepository.findAll()
+      .then((res) => {
+        return res.filter((el) => el.getDataValue("categoryName") === categoryDto.categoryName);
+      });
+    if(name.length){
+      throw new HttpException("Category name is exist", HttpStatus.NOT_FOUND);
+    }
     const category = await this.categoryRepository.findByPk(id);
     if (!category) {
       throw new HttpException("Category not found", HttpStatus.NOT_FOUND);

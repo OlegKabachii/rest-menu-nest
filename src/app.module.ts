@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { ConfigModule } from "@nestjs/config";
 import { Category } from "./category/category.model";
@@ -7,6 +7,9 @@ import { Info } from "./info/info.models";
 import { CategoryModule } from "./category/category.module";
 import { DishModule } from "./dish/dish.module";
 import { InfoModule } from "./info/info.module";
+import { CloudinaryModule } from "./utils/cloudinary/cloudinary.module";
+import { CloudinaryService } from "./utils/cloudinary/clodinary.service";
+import { UploadService } from "./dish/upload.service";
 
 @Module({
   imports: [
@@ -23,9 +26,10 @@ import { InfoModule } from "./info/info.module";
       models: [Category, Dish, Info],
       autoLoadModels: true
     }),
+    CloudinaryModule,
     CategoryModule,
     DishModule,
-    InfoModule
+    InfoModule,
   ],
   controllers: [],
   providers: [],

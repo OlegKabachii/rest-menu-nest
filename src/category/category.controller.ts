@@ -8,7 +8,7 @@ import {
   HttpStatus,
   Param,
   Patch,
-  Post,
+  Post, UploadedFile, UseInterceptors,
   UsePipes
 } from "@nestjs/common";
 import { CategoryDto } from "./category.dto";
@@ -16,6 +16,7 @@ import { CategoryService } from "./category.service";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Category } from "./category.model";
 import { ValidationsPipes } from "../utils/validations.pipes";
+import { FileInterceptor } from "@nestjs/platform-express";
 
 @ApiTags('Category')
 @Controller('category')
@@ -24,7 +25,6 @@ export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {
   }
 
-  //todo: handle status code
   @ApiOperation({summary: 'Create category'})
   @ApiResponse({status: 201, type: Category})
   @UsePipes(ValidationsPipes)
@@ -37,7 +37,6 @@ export class CategoryController {
   @ApiOperation({summary: 'Get all category'})
   @ApiResponse({status: 200, type: [Category]})
   @UsePipes(ValidationsPipes)
-  @Header("Access-Control-Allow-Origin", "http://localhost:4200")
   @Get()
   @HttpCode(HttpStatus.OK)
   getAllCategory(){
@@ -54,7 +53,6 @@ export class CategoryController {
 
   @ApiOperation({summary: 'Update one category by id'})
   @ApiResponse({status: 200, type: Category})
-  @UsePipes(ValidationsPipes)
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
   updateCategoryById(@Body() categoryDto: CategoryDto, @Param('id') id: string){
@@ -68,7 +66,5 @@ export class CategoryController {
   removeCategory(@Param('id') id: string){
     return this.categoryService.removeCategoryById(id)
   }
-
-
 
 }

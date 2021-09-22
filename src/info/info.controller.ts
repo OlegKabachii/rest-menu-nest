@@ -15,7 +15,6 @@ export class InfoController {
   @ApiOperation({summary: 'Get INFO'})
   @ApiResponse({status: 200, type: [Info]})
   @Get()
-  @Header("Access-Control-Allow-Origin", "http://localhost:4200")
   @HttpCode(HttpStatus.OK)
   getAllInfo(){
     return this.infoService.getAllInfo()

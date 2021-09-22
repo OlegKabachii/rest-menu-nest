@@ -16,7 +16,7 @@ export class DishService {
         return res.filter((el) => el.getDataValue("dishName") === dishDto.dishName)
       });
     if (name.length) {
-      throw new HttpException("Category name is exist", HttpStatus.NOT_FOUND)
+      throw new HttpException("Dish name is exist", HttpStatus.NOT_FOUND)
     }
     return await this.dishRepository.create(dishDto)
 
@@ -30,6 +30,15 @@ export class DishService {
   }
 
   async updateDishById(id: string, dishDto: DishDto) {
+    const name = await this.dishRepository.findAll()
+      .then((res) => {
+        return res.filter((el) => el.getDataValue("dishName") === dishDto.dishName)
+      });
+    const isSame = name.some((el)=> el.id !== id)
+
+    if (name.length && isSame) {
+      throw new HttpException("Dish name is exist", HttpStatus.NOT_FOUND)
+    }
     const dish = await this.dishRepository.findByPk(id)
     if (!dish) {
       throw new HttpException("Dish not found", HttpStatus.NOT_FOUND)
